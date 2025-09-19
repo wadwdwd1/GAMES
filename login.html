@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - LessonLabs</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html" id="login-btn">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Login</h1>
+      <form id="login-form">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required /><br />
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required /><br />
+        <button type="submit">Login</button>
+      </form>
+      <p id="error-message" style="color: red"></p>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 LessonLabs</p>
+    </footer>
+
+    <script>
+      // Default credentials (can be customized)
+      const defaultUsername = "admin";
+      const defaultPassword = "password"; // Customizable password
+
+      // Login form validation
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (username === defaultUsername && password === defaultPassword) {
+            // Redirect to dashboard after successful login
+            window.location.href = "dashboard.html";
+          } else {
+            document.getElementById("error-message").innerText =
+              "Invalid username or password.";
+          }
+        });
+    </script>
+  </body>
+</html>
